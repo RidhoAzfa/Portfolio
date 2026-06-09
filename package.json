@@ -2,6 +2,7 @@
   "name": "ridho-profile",
   "version": "0.1.0",
   "private": true,
+  "author": "Ridho Azfa",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
