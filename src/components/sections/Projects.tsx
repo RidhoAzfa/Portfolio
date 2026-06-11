@@ -132,6 +132,13 @@ export function calculateKinship(memberA: string, memberB: string, graph: Family
       tags: ["WebGIS Map", "Leaflet.js", "Spatial Buffer", "QGIS Classification"],
       tech: ["HTML5", "Vanilla CSS3", "JavaScript ES6+", "Leaflet.js Mapping Engine", "Leaflet Routing Machine", "Google Gemini 3.1 Flash Lite API", "IndexedDB", "Service Workers", "QGIS Spatial Desktop"],
       github: "https://github.com/RidhoAzfa/discover-york-webgis",
+      screenshots: [
+        "/screenshots/discover-york/york-1.png",
+        "/screenshots/discover-york/york-2.png",
+        "/screenshots/discover-york/york-3.png",
+        "/screenshots/discover-york/york-4.png",
+        "/screenshots/discover-york/york-5.jpg"
+      ],
       codeLang: "javascript",
       codeSnippet: `// Draggable Spatial Buffer & Proximity Calculation
 function updateBuffer(latlng, radiusMeters) {
