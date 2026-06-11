@@ -201,14 +201,7 @@ function updateBuffer(latlng, radiusMeters) {
             <text x="6" y="26" className="fill-accent-secondary font-mono text-[5px] font-bold uppercase animate-pulse">Syncing IndexedDB...</text>
           </g>
         </svg>
-      ),
-      screenshots: [
-        "/screenshots/discover-york/full-map.png",
-        "/screenshots/discover-york/york-ai.png",
-        "/screenshots/discover-york/layers-tools.png",
-        "/screenshots/discover-york/directions.png",
-        "/screenshots/discover-york/explore-weather.png"
-      ]
+      )
     },
     {
       id: "p3",
