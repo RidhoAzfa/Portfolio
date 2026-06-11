@@ -282,86 +282,107 @@ export function Model({ url, wireframe }) {
       id: "p4",
       category: "ai",
       key: "p4",
-      tags: ["Hybrid AI Workstation", "Local GPU / Cloud", "Subprocess Queue", "IndexedDB Vault"],
-      tech: ["React 19", "TypeScript", "Vite", "Express API Proxy (Port 3001)", "FastAPI GPU Engine (Python, Port 5000)", "PyTorch & Stable Diffusion", "Ollama LLM (Llama 3/Gemma 2)", "IndexedDB (CelesteDB Binary Store)", "Sequential CPU Offloading", "VAE Slicing/Tiling"],
-      github: "https://github.com/RidhoAzfa/celeste-ai-workstation",
-      codeLang: "python",
-      codeSnippet: `# local_worker.py - Subprocess Inference Worker with GPU Memory Offloading
-import torch
-from diffusers import StableDiffusionXLPipeline
+      tags: ["PC Automation Agent", "PowerShell Control", "DeepSeek API / R1", "Real-Time SSE Cockpit"],
+      tech: ["Next.js", "React", "Node.js (ESM tsx)", "DeepSeek API (R1)", "SSE Streaming", "Windows PowerShell", "C# API Integration (CoreAudio)", "DuckDuckGo Scraper"],
+      github: "https://github.com/RidhoAzfa/celeste-ai-agent",
+      codeLang: "typescript",
+      codeSnippet: `// src/tools/system.ts - On-the-fly C# Compilation to interface with CoreAudio API
+import { execSync } from "child_process";
 
-def run_inference(prompt, aspect_ratio, steps, output_path):
-    # Enable meta-device memory savings
-    pipe = StableDiffusionXLPipeline.from_pretrained(
-        "Celeste-Rapid-XL",
-        torch_dtype=torch.float16,
-        low_cpu_mem_usage=True
-    )
-
-    # Low-VRAM CPU Offloading & latent slicing to fit in 6GB GPU VRAM
-    pipe.enable_sequential_cpu_offload()
-    pipe.enable_vae_slicing()
-    pipe.enable_vae_tiling()
-
-    # Generate image
-    image = pipe(
-        prompt=prompt,
-        num_inference_steps=steps,
-        guidance_scale=7.5
-    ).images[0]
-
-    image.save(output_path)`,
+export function setSystemVolume(percentage: number): void {
+  const csharpCode = \`
+    using System;
+    using System.Runtime.InteropServices;
+    
+    public class AudioManager {
+      [DllImport("user32.dll")]
+      public static extern IntPtr SendMessageW(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
+      
+      public static void SetVolume(float scalar) {
+        // CoreAudio COM interface activation code compiled dynamically
+      }
+    }
+  \`;
+  // Execute compiled assembly using PowerShell.exe sub-process
+  const volumeScalar = (percentage / 100).toFixed(2);
+  execSync(\`powershell -Command "$w = Add-Type -TypeDefinition '\${csharpCode}' -PassThru; $w::SetVolume(\${volumeScalar})"\`);
+}`,
       renderSVG: () => (
         <svg viewBox="0 0 400 200" className="w-full h-full text-accent-primary" fill="none" stroke="currentColor" strokeWidth="1.5">
-          {/* Decoupled Multi-Service Flow */}
+          {/* Background mesh grid */}
+          <path d="M 10,60 L 390,60 M 10,140 L 390,140 M 120,10 L 120,190 M 280,10 L 280,190" className="stroke-accent-primary/[0.03] stroke-[0.5]" />
 
-          {/* Frontend block (React 19) */}
-          <g transform="translate(15, 60)">
-            <rect x="0" y="0" width="80" height="60" rx="6" className="stroke-accent-primary fill-accent-primary/5" />
-            <text x="40" y="18" textAnchor="middle" className="fill-accent-primary font-display text-[7px] font-extrabold">Celeste WebUI</text>
-            <text x="40" y="32" textAnchor="middle" className="fill-muted-text font-mono text-[5px]">React 19 / Vite</text>
-            <text x="40" y="44" textAnchor="middle" className="fill-accent-secondary font-mono text-[5px]">IndexedDB Cache</text>
+          {/* Next.js Web Cockpit Dashboard (React/Tailwind) */}
+          <g transform="translate(15, 50)">
+            <rect x="0" y="0" width="95" height="85" rx="6" className="stroke-accent-primary fill-accent-primary/5 stroke-[1.5]" />
+            <text x="47.5" y="15" textAnchor="middle" className="fill-accent-primary font-display text-[7.5px] font-extrabold">Next.js Cockpit</text>
+            
+            {/* Miniature UI Dashboard elements */}
+            {/* Terminal lines */}
+            <rect x="8" y="24" width="79" height="26" rx="3" className="stroke-accent-primary/20 fill-background/60" />
+            <text x="12" y="32" className="fill-accent-secondary font-mono text-[4px] font-bold">&gt; R1: thought...</text>
+            <text x="12" y="42" className="fill-emerald-400 font-mono text-[4px] font-bold">&gt; syscheck -ok</text>
 
-            {/* Small UI layout representation inside */}
-            <rect x="8" y="48" width="64" height="6" rx="1" className="stroke-accent-primary/30 fill-none" />
+            {/* Volume slider mock */}
+            <line x1="8" y1="58" x2="87" y2="58" className="stroke-accent-secondary/40 stroke-[2]" />
+            <circle cx="55" cy="58" r="3" className="stroke-accent-primary fill-accent-primary" />
+            <text x="8" y="68" className="fill-muted-text font-mono text-[4px]">Volume: 65%</text>
+
+            {/* Safety Gate Overlay Banner */}
+            <rect x="8" y="72" width="79" height="8" rx="2" className="stroke-red-500/50 fill-red-500/10" />
+            <text x="47.5" y="78" textAnchor="middle" className="fill-red-400 font-mono text-[4px] font-semibold tracking-wider">SAFETY GATE ACTIVE</text>
           </g>
 
-          {/* Node.js Proxy Express Server (Port 3001) */}
-          <g transform="translate(140, 60)">
-            <rect x="0" y="0" width="90" height="60" rx="6" className="stroke-accent-secondary fill-accent-secondary/5" />
-            <text x="45" y="18" textAnchor="middle" className="fill-accent-secondary font-display text-[7px] font-extrabold">Express API</text>
-            <text x="45" y="32" textAnchor="middle" className="fill-muted-text font-mono text-[5px]">Port 3001 Proxy</text>
-            <text x="45" y="44" textAnchor="middle" className="fill-accent-primary/80 font-mono text-[5px]">Auth & Formatting</text>
+          {/* Node.js Control Server (TypeScript tsx) */}
+          <g transform="translate(145, 55)">
+            <rect x="0" y="0" width="95" height="75" rx="6" className="stroke-accent-secondary fill-accent-secondary/5 stroke-[1.5]" />
+            <text x="47.5" y="15" textAnchor="middle" className="fill-accent-secondary font-display text-[7.5px] font-extrabold">Node.js Engine</text>
+            <text x="47.5" y="28" textAnchor="middle" className="fill-muted-text font-mono text-[5px]">server.ts | engine.ts</text>
+            <text x="47.5" y="40" textAnchor="middle" className="fill-accent-primary/80 font-mono text-[5.5px]">SSE Stream API</text>
+            
+            {/* Persistent session.json representation */}
+            <rect x="15" y="48" width="65" height="18" rx="3" className="stroke-accent-secondary/30 fill-none" />
+            <text x="47.5" y="59" textAnchor="middle" className="fill-accent-secondary font-mono text-[4.5px]">session_memory.json</text>
           </g>
 
-          {/* Python GPU Engine (Port 5000) & isolated worker subprocess */}
-          <g transform="translate(270, 45)">
-            <rect x="0" y="0" width="115" height="90" rx="6" className="stroke-emerald-500 fill-emerald-500/5" />
-            <text x="57" y="18" textAnchor="middle" className="fill-emerald-500 font-display text-[7px] font-extrabold">FastAPI GPU Engine</text>
-            <text x="57" y="30" textAnchor="middle" className="fill-muted-text font-mono text-[5px]">Port 5000 / PyTorch</text>
-
-            {/* Subprocess wrapper box */}
-            <rect x="10" y="38" width="95" height="42" rx="4" className="stroke-accent-primary fill-background/90 stroke-[1] animate-svg-pulse-border" />
-            <text x="57" y="48" textAnchor="middle" className="fill-accent-primary font-mono text-[5px] font-bold">local_worker.py (Fork)</text>
-            <text x="57" y="58" textAnchor="middle" className="fill-muted-text font-mono text-[4px]">GPU memory offloading loops</text>
-            <text x="57" y="68" textAnchor="middle" className="fill-accent-secondary font-mono text-[4px] font-bold">VRAM Peak &lt; 4.5 GB</text>
+          {/* DeepSeek LLM Cloud (R1 & Chat) */}
+          <g transform="translate(285, 20)">
+            <rect x="0" y="0" width="100" height="55" rx="6" className="stroke-purple-500 fill-purple-500/5 stroke-[1.5]" />
+            <text x="50" y="15" textAnchor="middle" className="fill-purple-400 font-display text-[7px] font-extrabold">DeepSeek API</text>
+            <text x="50" y="28" textAnchor="middle" className="fill-accent-secondary font-mono text-[5px] font-bold">deepseek-reasoner</text>
+            <text x="50" y="38" textAnchor="middle" className="fill-purple-300 font-mono text-[4.5px]">R1 thought streams</text>
+            <text x="50" y="47" textAnchor="middle" className="fill-muted-text font-mono text-[4px]">deepseek-chat (tools)</text>
           </g>
 
-          {/* Interconnecting arrows */}
-          {/* UI to API Proxy */}
-          <path d="M 95,90 L 140,90" className="stroke-accent-primary/60 stroke-[1.5] animate-svg-flow-right" />
-          <polygon points="140,90 135,87 135,93" className="fill-accent-primary" />
+          {/* Windows PowerShell & C# COM Volume Control */}
+          <g transform="translate(285, 95)">
+            <rect x="0" y="0" width="100" height="85" rx="6" className="stroke-emerald-500 fill-emerald-500/5 stroke-[1.5] animate-svg-pulse-border" />
+            <text x="50" y="15" textAnchor="middle" className="fill-emerald-400 font-display text-[7px] font-extrabold">Windows Control</text>
+            <text x="50" y="28" textAnchor="middle" className="fill-muted-text font-mono text-[5px]">PowerShell.exe</text>
+            
+            {/* C# Compiler sub-block */}
+            <rect x="8" y="36" width="84" height="42" rx="3" className="stroke-accent-primary fill-background/90 stroke-[1]" />
+            <text x="50" y="45" textAnchor="middle" className="fill-accent-primary font-mono text-[5px] font-bold">C# COM Compiler</text>
+            <text x="50" y="55" textAnchor="middle" className="fill-muted-text font-mono text-[4px]">CoreAudio volume manipulation</text>
+            <text x="50" y="65" textAnchor="middle" className="fill-accent-secondary font-mono text-[4px] font-bold">Workspace File I/O</text>
+            <text x="50" y="73" textAnchor="middle" className="fill-emerald-400 font-mono text-[4px] font-bold">DuckDuckGo Web Scrape</text>
+          </g>
 
-          {/* API Proxy to FastAPI */}
-          <path d="M 230,90 L 270,90" className="stroke-accent-secondary/60 stroke-[1.5] animate-svg-flow-right" />
-          <polygon points="270,90 265,87 265,93" className="fill-accent-secondary" />
+          {/* Connection Flows */}
+          {/* Cockpit to Engine: bidirectional SSE and events */}
+          <path d="M 110,80 L 145,80" className="stroke-accent-primary/60 stroke-[1.5] animate-svg-flow-right" />
+          <polygon points="145,80 140,77 140,83" className="fill-accent-primary" />
+          
+          <path d="M 145,95 L 110,95" className="stroke-accent-secondary/60 stroke-[1.5] animate-svg-flow-left" strokeDasharray="3 3" />
+          <polygon points="110,95 115,92 115,98" className="fill-accent-secondary" />
 
-          {/* Return loops representing data responses */}
-          <path d="M 270,110 L 230,110" className="stroke-accent-secondary/30 stroke-[1] animate-svg-flow-left" strokeDasharray="3 3" />
-          <polygon points="230,110 235,107 235,113" className="fill-accent-secondary/30" />
+          {/* Engine to DeepSeek (top connection) */}
+          <path d="M 220,55 C 220,38 285,38 285,38" className="stroke-purple-400/50 stroke-[1]" strokeDasharray="2 2" />
+          <polygon points="285,38 280,35 280,41" className="fill-purple-400/50" />
 
-          <path d="M 140,110 L 95,110" className="stroke-accent-primary/30 stroke-[1] animate-svg-flow-left" strokeDasharray="3 3" />
-          <polygon points="95,110 100,107 100,113" className="fill-accent-primary/30" />
+          {/* Engine to Windows OS (bottom connection) */}
+          <path d="M 220,130 C 220,145 285,145 285,145" className="stroke-emerald-400/60 stroke-[1.5] animate-svg-flow-right" />
+          <polygon points="285,145 280,142 280,148" className="fill-emerald-400" />
         </svg>
       )
     },
