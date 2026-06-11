@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useTheme } from "@/context/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, FolderGit2, Mail, Terminal, Cloud, Network, Shield } from "lucide-react";
+import { ArrowUpRight, FolderGit2, Mail, Terminal, Cloud, Network, Shield, Bot } from "lucide-react";
 
 // Fake terminal output lines for the "neural API" tab
 const NEURAL_LINES = [
@@ -53,8 +54,26 @@ function NeuralTerminal() {
 
 export default function Hero() {
   const { t } = useLanguage();
+  const { isMounted } = useTheme();
   const [roleIndex, setRoleIndex] = useState(0);
-  const [activeTab, setActiveTab] = useState<"terraform" | "network" | "neural">("terraform");
+  const [activeTab, setActiveTab] = useState<"robot" | "terraform" | "network" | "neural">("robot");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const originalError = console.error;
+    console.error = (...args: unknown[]) => {
+      const msg = args[0];
+      if (typeof msg === "string" && msg.includes("Missing property")) {
+        return;
+      }
+      originalError(...args);
+    };
+
+    return () => {
+      console.error = originalError;
+    };
+  }, []);
 
   const roles = [t("hero.role1"), t("hero.role2"), t("hero.role3")];
 
@@ -90,7 +109,7 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
 
         {/* Left Column */}
-        <div className="lg:col-span-7 flex flex-col items-start text-left gap-6">
+        <div className="lg:col-span-6 flex flex-col items-start text-left gap-6">
 
           {/* Greeting badge */}
           <motion.div
@@ -187,11 +206,11 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.94, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="lg:col-span-5 flex justify-center lg:justify-end animate-float"
+          className="lg:col-span-6 flex justify-center lg:justify-end animate-float"
         >
           <div
             onMouseMove={handleMouseMove}
-            className="w-full max-w-md glass rounded-2xl shadow-2xl relative overflow-hidden flex flex-col text-left group"
+            className="w-full max-w-[470px] glass rounded-2xl shadow-2xl relative overflow-hidden flex flex-col text-left group"
           >
             {/* Spotlight cursor-follow glow effect */}
             <div
@@ -202,8 +221,8 @@ export default function Hero() {
             />
 
             {/* Window Topbar */}
-            <div className="bg-surface-raised border-b border-card-border px-4 py-3 flex items-center justify-between">
-              <div className="flex items-center gap-1.5">
+            <div className="bg-surface-raised border-b border-card-border px-4 py-3 flex items-center justify-center relative">
+              <div className="absolute left-4 flex items-center gap-1.5">
                 <span className="w-3 h-3 rounded-full bg-rose-500/80 hover:bg-rose-500 transition-colors" />
                 <span className="w-3 h-3 rounded-full bg-amber-500/80 hover:bg-amber-500 transition-colors" />
                 <span className="w-3 h-3 rounded-full bg-emerald-500/80 hover:bg-emerald-500 transition-colors" />
@@ -212,15 +231,15 @@ export default function Hero() {
                 <Shield className="w-3.5 h-3.5 text-accent-secondary" />
                 <span>sandbox_console.sh</span>
               </div>
-              <div className="w-10" />
             </div>
 
             {/* Tabs */}
-            <div className="bg-surface-raised/50 border-b border-card-border px-4 flex items-center gap-1 select-none">
+            <div className="bg-surface-raised/50 border-b border-card-border px-4 flex items-center gap-1 select-none overflow-x-auto scrollbar-none">
               {([
-                { key: "terraform", icon: Cloud, label: "main.tf" },
-                { key: "network",   icon: Network, label: "switch_config.py" },
-                { key: "neural",    icon: Terminal, label: "neural_api.sh" },
+                { key: "robot",     icon: Bot,      label: "bot.spline" },
+                { key: "terraform", icon: Cloud,    label: "main.tf" },
+                { key: "network",   icon: Network,  label: "switch.py" },
+                { key: "neural",    icon: Terminal, label: "neural.sh" },
               ] as const).map(({ key, icon: Icon, label }) => (
                 <button
                   key={key}
@@ -246,7 +265,22 @@ export default function Hero() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                {activeTab === "neural" ? (
+                {activeTab === "robot" ? (
+                  <div className="relative h-[260px] bg-background/30 overflow-hidden flex items-center justify-center animate-fade-in">
+                    {!isMounted ? (
+                      <div className="flex items-center gap-2 text-[10px] font-mono text-muted-text">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent-primary animate-ping" />
+                        <span>LOADING 3D COGNITIVE MODEL...</span>
+                      </div>
+                    ) : (
+                      <spline-viewer
+                        url="https://prod.spline.design/6eHEG9FX6eNIpa9e/scene.splinecode"
+                        class="w-full h-full border-none"
+                        style={{ width: "100%", height: "100%", display: "block" }}
+                      />
+                    )}
+                  </div>
+                ) : activeTab === "neural" ? (
                   <NeuralTerminal />
                 ) : activeTab === "terraform" ? (
                   <div className="p-5 font-mono text-[11px] leading-relaxed overflow-x-auto h-[260px] bg-background/60">
