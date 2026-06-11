@@ -285,6 +285,13 @@ export function Model({ url, wireframe }) {
       tags: ["PC Automation Agent", "PowerShell Control", "DeepSeek API / R1", "Real-Time SSE Cockpit"],
       tech: ["Next.js", "React", "Node.js (ESM tsx)", "DeepSeek API (R1)", "SSE Streaming", "Windows PowerShell", "C# API Integration (CoreAudio)", "DuckDuckGo Scraper"],
       github: "https://github.com/RidhoAzfa/celeste-ai-agent",
+      screenshots: [
+        "/screenshots/celeste-ai/celeste-1.png",
+        "/screenshots/celeste-ai/celeste-2.png",
+        "/screenshots/celeste-ai/celeste-3.png",
+        "/screenshots/celeste-ai/celeste-4.png",
+        "/screenshots/celeste-ai/celeste-5.png"
+      ],
       codeLang: "typescript",
       codeSnippet: `// src/tools/system.ts - On-the-fly C# Compilation to interface with CoreAudio API
 import { execSync } from "child_process";
