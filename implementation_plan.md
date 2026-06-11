@@ -1,8 +1,8 @@
-# Interactive Web Profile — Muhammad Ridho Azfa Karani
+# Implementation Plan - Integrate Velvet & Dough Project Case Study
 
-A premium, high-aesthetic web profile designed to showcase Ridho's qualifications (Information Systems student at University of Bakrie, SMK TKJ networking background, AWS certifications) and upcoming projects. It features full responsive support (Desktop, Tablet, Mobile), custom animations, a language toggle (English/Bahasa Indonesia), a theme toggle (Dark/Light mode, defaulting to Dark), and an integrated AI Chatbot.
+This plan details the steps to integrate **Velvet & Dough**—a premium direct-to-consumer (D2C) e-commerce and store operations SaaS application—into Muhammad Ridho Azfa Karani's personal portfolio. 
 
-**Branding Mascot:** The visual color scheme is themed around Ridho's uploaded Mascot Logo (glowing mint-green and emerald-cyan fox holding a neon sword).
+The integration involves adding a new project card, translating details into English and Indonesian, and updating the DeepSeek AI Chatbot's system prompt and mock responder to ensure full awareness.
 
 ---
 
@@ -19,87 +19,63 @@ A premium, high-aesthetic web profile designed to showcase Ridho's qualification
 ## User Review Required
 
 > [!IMPORTANT]
-> **Active Focus: Phase 7 — AI Chatbot Integration using DeepSeek API**
+> **Core Changes & Features to Add:**
 >
-> **1. API Route Proxy:**
-> - Setup `/api/chat` route in Next.js to securely relay prompts to DeepSeek.
-> - Inject a rich context payload containing Ridho's bio, skills, education, certifications, and case studies (Maryam Familia, Discover York, Characters 3D Viewer, Celeste AI) as system instructions.
+> **1. Interactive SVG Architecture Diagram (`p7`):**
+> - Create an interactive, glassmorphic SVG showing the e-commerce client checkout (catalog & QRIS scanner), Next.js backend serverless APIs (Redis token rate limiting & Supabase receipts signed URLs), and kitchen operations queue (FIFO status tracker and n8n WhatsApp webhook alerts).
+> - Apply custom class animations (`animate-svg-flow-right`, `animate-svg-flow-left`, `animate-svg-pulse-border`) that trigger dynamically on hover.
 >
-> **2. Interactive Floating UI:**
-> - Floating foxy dialog head toggler in the bottom right corner.
-> - Responsive drawer styling that works beautifully on desktop, tablet, and mobile.
-> - Fast-response suggest pills to jumpstart conversation.
+> **2. Multilingual Translations (`en.ts` / `id.ts`):**
+> - Define the title, tagline, description, specifications, and 4 standout features in both English and Indonesian.
 >
-> **3. Safe Fallback:**
-> - In case of missing/invalid `DEEPSEEK_API_KEY`, a smart fallback responder simulates realistic, helpful answers using mock responses, rather than failing silently or throwing server errors.
+> **3. AI Chatbot Context Expansion (`route.ts`):**
+> - Update the DeepSeek Chatbot `SYSTEM_PROMPT` with the new project specs.
+> - Expand the `mockResponse` local keyword matching block to handle queries about baking, cake, velvet, dough, and order fulfillment.
 
 ---
 
 ## Open Questions
 
-- We will configure the mock fallback to serve answers if `DEEPSEEK_API_KEY` is not provided in `.env`. Let us know if you want a mock database or simple static fallback prompts. We propose dynamic mock responses based on query keyword matching to ensure maximum interactivity in sandbox mode.
+> [!NOTE]
+> We propose using a mock GitHub repository URL `https://github.com/RidhoAzfa/velvet-dough-saas` to follow the naming convention of other projects. Let us know if you have a specific live GitHub repository path to link instead.
 
 ---
 
-## 10-Phase Roadmap
+## Proposed Changes
 
-```mermaid
-graph TD
-    P1[Phase 1: Scaffolding & Theme/Language Foundations - DONE] --> P2[Phase 2: Premium Layout & Hero Section - DONE]
-    P2 --> P3[Phase 3: Interactive Skills & Tech Stack Showcase - DONE]
-    P3 --> P4[Phase 4: Academic Journey & Education Timeline - DONE]
-    P4 --> P5[Phase 5: Certifications, AWS Badges & Fox Logo Branding - DONE]
-    P5 --> P6[Phase 6: Projects Grid & Interactive Showcase - DONE]
-    P6 --> P7[Phase 7: AI Chatbot Integration using DeepSeek - ACTIVE]
-    P7 --> P8[Phase 8: Interactive Guestbook & Contact Section - PENDING]
-    P8 --> P9[Phase 9: Multi-Device Visual Regression Audit - PENDING]
-    P9 --> P10[Phase 10: Custom Micro-interactions & Final Polish - PENDING]
-```
+### Projects Page Component
 
----
+#### [MODIFY] [Projects.tsx](file:///c:/Developer/Hail%20Myself/Project/Web/portfolios/ridho-profile/src/components/sections/Projects.tsx)
+- Insert a new project entry `p7` into the `projects` array of type `Project`.
+- Set category to `"web"`, key to `"p7"`, and tags to D2C & SaaS identifiers.
+- Implement the detailed `renderSVG()` illustrating the e-commerce checkout flow, Redis rate limit protection, Supabase storage bucket, database client fallback logic, and n8n notification webhook.
+- Add code snippet showing the `MockPrismaClient` hybrid database fallback initialization inside `db.ts`.
 
-## Proposed Changes — AI Chatbot Integration
-
-### New Components
-
-#### [NEW] [route.ts](file:///c:/Developer/Hail%20Myself/Project/Web/portfolios/ridho-profile/src/app/api/chat/route.ts)
-A secure API route proxy that:
-- Reads `DEEPSEEK_API_KEY` from the environment.
-- Formulates a system message with Ridho's complete resume details (SMK TKJ, University of Bakrie, AWS Certifications, and Project Portfolio Details).
-- Calls the DeepSeek API endpoint.
-- Handles empty/invalid API keys gracefully with a local keyword-matching Mock AI processor.
-
-#### [NEW] [Chatbot.tsx](file:///c:/Developer/Hail%20Myself/Project/Web/portfolios/ridho-profile/src/components/Chatbot.tsx)
-A beautiful floating chatbot widget featuring:
-- Emerald neon glowing fox icon overlay (mascot themed).
-- Expandable glassmorphic dialog pane.
-- Message list displaying user and assistant chat bubbles.
-- Dynamic scrolling, message typing state animations, and error banners.
-- Translation integration for multi-language context.
-- Quick suggestion tags to speed up interactions.
-
-### Modifications
+### Translation Modules
 
 #### [MODIFY] [en.ts](file:///c:/Developer/Hail%20Myself/Project/Web/portfolios/ridho-profile/src/locales/en.ts)
-Add English translation dictionary keys for the chatbot:
-- `chatbot.title`, `chatbot.placeholder`, `chatbot.welcome`, `chatbot.suggest_aws`, etc.
+- Add translation keys under `projects` for `p7_title`, `p7_tagline`, `p7_desc`, `p7_spec_overview`, `p7_feat1`, `p7_feat2`, `p7_feat3`, and `p7_feat4`.
 
 #### [MODIFY] [id.ts](file:///c:/Developer/Hail%20Myself/Project/Web/portfolios/ridho-profile/src/locales/id.ts)
-Add matching Indonesian translations for the chatbot.
+- Add matching Indonesian translation keys for the above keys.
 
-#### [MODIFY] [page.tsx](file:///c:/Developer/Hail%20Myself/Project/Web/portfolios/ridho-profile/src/app/page.tsx)
-Mount the `<Chatbot />` component at the root level of the application page tree.
+### AI Chatbot Backend Endpoint
+
+#### [MODIFY] [route.ts](file:///c:/Developer/Hail%20Myself/Project/Web/portfolios/ridho-profile/src/app/api/chat/route.ts)
+- Append the Velvet & Dough specs to `SYSTEM_PROMPT` projects list.
+- Add a new block in `mockResponse` fallback mapping queries like `"velvet"`, `"dough"`, `"baking"`, `"cake"`, or `"qris"` to a detailed breakdown of the Velvet & Dough SaaS application.
 
 ---
 
 ## Verification Plan
 
 ### Automated Tests
-- Run `pnpm build` to compile the app and check for build boundaries.
-- Run `pnpm lint` to verify zero type mismatches or tells.
+- Run Next.js production build (`pnpm build`) to verify all TypeScript typings and build boundaries.
+- Run ESLint checks (`pnpm lint`) to verify syntax compliance.
 
 ### Manual Verification
-- Test that clicking the chatbot bubble opens the dialog pane cleanly.
-- Verify that clicking any suggestion tag immediately triggers a query response.
-- Verify that toggling the language (EN/ID) immediately translates the chatbot UI, starter suggestions, and assistant greetings.
-- Check console and network logs to ensure no leaked API keys or runtime crashes.
+- Verify the projects grid displays "Velvet & Dough" under "All Fields" and "Web Applications".
+- Hover over the card to ensure the custom SVG animations trigger smoothly.
+- Open the Technical Specs drawer and verify details render cleanly.
+- Toggle language (English/Indonesian) and verify translations update correctly.
+- Test the chatbot with queries containing "velvet", "dough", and "baking" to confirm the AI responds with appropriate details about the project.

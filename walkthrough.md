@@ -1,4 +1,4 @@
-# Walkthrough — Phases 1 to 6 Completed
+# Walkthrough — Phases 1 to 10 Completed
 
 We have successfully finished:
 - **Phase 1: Project Scaffolding & Theme/Language Foundations**
@@ -7,6 +7,10 @@ We have successfully finished:
 - **Phase 4: Academic Journey & Interactive Timeline**
 - **Phase 5: Certifications, AWS Badges & Fox Logo Branding**
 - **Phase 6: Projects Grid & Interactive Showcase**
+- **Phase 7: AI Chatbot Integration using DeepSeek**
+- **Phase 8: Mobile Audit & Z-Index Stacking Fixes**
+- **Phase 9: Desktop Chatbot Position Optimization & Next.js Issue Resolution**
+- **Phase 10: Velvet & Dough Case Study Integration, Screenshot Gallery, Lightbox Modal, & Production Deployment**
 
 ---
 
@@ -134,9 +138,9 @@ We have successfully built and verified the integrated AI portfolio companion.
 Below is the chatbot screenshot carousel showing the open dialog and interactive query replies:
 
 ```carousel
-![Chatbot: Dialog Pane Open](file:///C:/Users/ridho/.gemini/antigravity/brain/e8c88d75-1209-47f6-a8ab-c88e7b396432/desktop_dark_en_chatbot_open.png)
+![Chatbot: Dialog Pane Open](file:///C:/Users/ridho/.gemini/antigravity/brain/desktop_dark_en_chatbot_open.png)
 <!-- slide -->
-![Chatbot: Suggestion Query Reply](file:///C:/Users/ridho/.gemini/antigravity/brain/e8c88d75-1209-47f6-a8ab-c88e7b396432/desktop_dark_en_chatbot_reply.png)
+![Chatbot: Suggestion Query Reply](file:///C:/Users/ridho/.gemini/antigravity/brain/desktop_dark_en_chatbot_reply.png)
 ```
 
 ---
@@ -146,19 +150,19 @@ Below is the chatbot screenshot carousel showing the open dialog and interactive
 Below is the visual gallery carousel showcasing the interface design, parameter selectors, and outputs of the **Celeste AI** Hybrid workstation:
 
 ```carousel
-![Celeste AI: Chat Interface Workspace](file:///C:/Users/ridho/.gemini/antigravity/brain/e8c88d75-1209-47f6-a8ab-c88e7b396432/media__1780992225595.png)
+![Celeste AI: Chat Interface Workspace](file:///C:/Users/ridho/.gemini/antigravity/brain/media__1780992225595.png)
 <!-- slide -->
-![Celeste AI: Model Selection Dropdown (Cloud & Ollama)](file:///C:/Users/ridho/.gemini/antigravity/brain/e8c88d75-1209-47f6-a8ab-c88e7b396432/media__1780992225588.png)
+![Celeste AI: Model Selection Dropdown (Cloud & Ollama)](file:///C:/Users/ridho/.gemini/antigravity/brain/media__1780992225588.png)
 <!-- slide -->
-![Celeste AI: Model Selection Dropdown (Custom Studio Checkpoints)](file:///C:/Users/ridho/.gemini/antigravity/brain/e8c88d75-1209-47f6-a8ab-c88e7b396432/media__1780994729319.png)
+![Celeste AI: Model Selection Dropdown (Custom Studio Checkpoints)](file:///C:/Users/ridho/.gemini/antigravity/brain/media__1780994729319.png)
 <!-- slide -->
-![Celeste AI: Model Selection Dropdown (Local GPU Image Models)](file:///C:/Users/ridho/.gemini/antigravity/brain/e8c88d75-1209-47f6-a8ab-c88e7b396432/media__1780994729323.png)
+![Celeste AI: Model Selection Dropdown (Local GPU Image Models)](file:///C:/Users/ridho/.gemini/antigravity/brain/media__1780994729323.png)
 <!-- slide -->
-![Celeste AI: Chat Inspector (Per-Chat Overrides & Parameters)](file:///C:/Users/ridho/.gemini/antigravity/brain/e8c88d75-1209-47f6-a8ab-c88e7b396432/media__1780994729317.png)
+![Celeste AI: Chat Inspector (Per-Chat Overrides & Parameters)](file:///C:/Users/ridho/.gemini/antigravity/brain/media__1780994729317.png)
 <!-- slide -->
-![Celeste AI: Llama 3 Offline Conversation](file:///C:/Users/ridho/.gemini/antigravity/brain/e8c88d75-1209-47f6-a8ab-c88e7b396432/media__1780992225603.png)
+![Celeste AI: Llama 3 Offline Conversation](file:///C:/Users/ridho/.gemini/antigravity/brain/media__1780992225603.png)
 <!-- slide -->
-![Celeste AI: Generated Greatsword Fantasy Artwork](file:///C:/Users/ridho/.gemini/antigravity/brain/e8c88d75-1209-47f6-a8ab-c88e7b396432/media__1780992225626.png)
+![Celeste AI: Generated Greatsword Fantasy Artwork](file:///C:/Users/ridho/.gemini/antigravity/brain/media__1780992225626.png)
 ```
 
 ---
@@ -176,7 +180,7 @@ We have successfully integrated two new projects into the portfolio:
 
 ### 2. Minerva AI (Project 6)
 - Appended under the **Artificial Intelligence** filter mapping.
-- Designed a blueprint SVG layout displaying the Minerva agent's cognitive core node connected to memory vectors, planning checklists, tools execution pipelines, with a clear "IN PROGRESS / UNDER ACTIVE DEVELOPMENT" seal to indicate sandbox prototype mode.
+- Designed a blueprint SVG layout displaying the Minerva agent's cognitive core node connected to memory vectors, planning checklists, tools execution pipelines, with a steel "IN PROGRESS / UNDER ACTIVE DEVELOPMENT" seal to indicate sandbox prototype mode.
 - Loaded a typescript planner/executor loop mockup.
 
 ---
@@ -186,15 +190,15 @@ We have successfully integrated two new projects into the portfolio:
 Below is the visual gallery carousel showcasing the user interface design, compliance scopes, file drop-zone intake, multi-framework options, and execution terminal log outputs of **Acontext Audit**:
 
 ```carousel
-![Acontext Audit: Auditor Master Console Dashboard](file:///C:/Users/ridho/.gemini/antigravity/brain/e8c88d75-1209-47f6-a8ab-c88e7b396432/media__1780994851429.png)
+![Acontext Audit: Auditor Master Console Dashboard](file:///C:/Users/ridho/.gemini/antigravity/brain/media__1780994851429.png)
 <!-- slide -->
-![Acontext Audit: Onboard New Client Engagement Modal with file drop-zone](file:///C:/Users/ridho/.gemini/antigravity/brain/e8c88d75-1209-47f6-a8ab-c88e7b396432/media__1780994851468.png)
+![Acontext Audit: Onboard New Client Engagement Modal with file drop-zone](file:///C:/Users/ridho/.gemini/antigravity/brain/media__1780994851468.png)
 <!-- slide -->
-![Acontext Audit: Multi-Framework Dropdown Target Selection](file:///C:/Users/ridho/.gemini/antigravity/brain/e8c88d75-1209-47f6-a8ab-c88e7b396432/media__1780994851465.png)
+![Acontext Audit: Multi-Framework Dropdown Target Selection](file:///C:/Users/ridho/.gemini/antigravity/brain/media__1780994851465.png)
 <!-- slide -->
-![Acontext Audit: Isolated Client Portal Dashboard (LexCorp Industries)](file:///C:/Users/ridho/.gemini/antigravity/brain/e8c88d75-1209-47f6-a8ab-c88e7b396432/media__1780994851471.png)
+![Acontext Audit: Isolated Client Portal Dashboard (LexCorp Industries)](file:///C:/Users/ridho/.gemini/antigravity/brain/media__1780994851471.png)
 <!-- slide -->
-![Acontext Audit: Client Portal Workflows Mappings & agent terminal output](file:///C:/Users/ridho/.gemini/antigravity/brain/e8c88d75-1209-47f6-a8ab-c88e7b396432/media__1780994851427.png)
+![Acontext Audit: Client Portal Workflows Mappings & agent terminal output](file:///C:/Users/ridho/.gemini/antigravity/brain/media__1780994851427.png)
 ```
 
 ---
@@ -243,15 +247,15 @@ We performed a comprehensive audit of mobile interactions, touch targets, and la
 Below is the updated mobile carousel showing our layout and stacking fixes:
 
 ```carousel
-![1. Mobile Hero: Neon Fox mascot logo visible in floating button, elegant DM Serif typography](file:///C:/Users/ridho/.gemini/antigravity/brain/4e1d3cd2-e3c3-4cba-95ae-fd9f50721b1d/mobile_1_initial.png)
+![1. Mobile Hero: Neon Fox mascot logo visible in floating button, elegant DM Serif typography](file:///C:/Users/ridho/.gemini/antigravity/brain/mobile_1_initial.png)
 <!-- slide -->
-![2. Mobile Menu Open: Stacking fix - Chatbot bubble fully hidden behind mobile menu and language options](file:///C:/Users/ridho/.gemini/antigravity/brain/4e1d3cd2-e3c3-4cba-95ae-fd9f50721b1d/mobile_2_menu_open.png)
+![2. Mobile Menu Open: Stacking fix - Chatbot bubble fully hidden behind mobile menu and language options](file:///C:/Users/ridho/.gemini/antigravity/brain/mobile_2_menu_open.png)
 <!-- slide -->
-![3. Project Drawer Open: Stacking fix - Chatbot bubble hidden behind project spec sheets](file:///C:/Users/ridho/.gemini/antigravity/brain/4e1d3cd2-e3c3-4cba-95ae-fd9f50721b1d/mobile_6_project_drawer_open.png)
+![3. Project Drawer Open: Stacking fix - Chatbot bubble hidden behind project spec sheets](file:///C:/Users/ridho/.gemini/antigravity/brain/mobile_6_project_drawer_open.png)
 <!-- slide -->
-![4. Chatbot Open: Premium full-width bottom sheet, click-outside backdrop, hidden floating toggle bubble](file:///C:/Users/ridho/.gemini/antigravity/brain/4e1d3cd2-e3c3-4cba-95ae-fd9f50721b1d/mobile_8_chatbot_open.png)
+![4. Chatbot Open: Premium full-width bottom sheet, click-outside backdrop, hidden floating toggle bubble](file:///C:/Users/ridho/.gemini/antigravity/brain/mobile_8_chatbot_open.png)
 <!-- slide -->
-![5. Chatbot Suggestion: Message stream response in new mobile layout](file:///C:/Users/ridho/.gemini/antigravity/brain/4e1d3cd2-e3c3-4cba-95ae-fd9f50721b1d/mobile_9_chatbot_suggestion_clicked.png)
+![5. Chatbot Suggestion: Message stream response in new mobile layout](file:///C:/Users/ridho/.gemini/antigravity/brain/mobile_9_chatbot_suggestion_clicked.png)
 ```
 
 ---
@@ -274,8 +278,49 @@ We resolved the issues affecting the chatbot panel on desktop and cleared the Ne
 
 ---
 
+## Phase 10: Velvet & Dough Case Study Integration, Screenshot Gallery, Lightbox Modal, & Production Deployment
+
+We have successfully integrated the **Velvet & Dough** premium D2C e-commerce and store operations SaaS case study as the 7th project in Ridho Azfa's portfolio website, synchronized all changes to GitHub, and updated the production deployment on Vercel.
+
+### 1. Interactive SVG Architecture Diagram (`p7`)
+- Designed and built a beautiful, custom glassmorphic SVG showing the end-to-end data flow:
+  - **D2C Checkout UI**: Catalog grid layout, Medan location indicator, and QRIS scanner HUD with upload receipt trigger.
+  - **Next.js Serverless API**: Ecosystem middleware consisting of Redis rate-limiting (with fail-safe bypass path), database routing logic, and Supabase Storage signed URLs.
+  - **Kitchen FIFO Queue**: Administrative panel showing active orders with status progression tags (`PENDING`, `BAKING`) and n8n webhook notification dispatchers.
+  - **WhatsApp Alert Dispatcher**: Integrated feedback loop routing kitchen state notifications to customers via WhatsApp.
+- Added custom animation classes (`animate-svg-flow-right`, `animate-svg-flow-left`, `animate-svg-pulse-border`) mapping interactive SVG flows that trigger dynamically on hover.
+
+### 2. Spec Sheet Details Drawer Configuration
+- Linked a TypeScript code snippet showing how the hybrid database handles database connectivity: falling back to an in-memory client `MockPrismaClient` with transaction and aggregation support if the PostgreSQL database is unconfigured.
+- Added 4 standout features in the details panel:
+  - **Database Fallback Switcher**: Mock database client that enables zero-config local operations.
+  - **Velvet AI Translator**: Contextual translation of Indonesian testimonials to English.
+  - **Fail-Safe Rate Limiting**: Redis bypass middleware preventing checkout drop-offs.
+  - **Kitchen FIFO Operations**: Order logging, real-time stock control, and automated notifications.
+
+### 3. DeepSeek Chatbot Knowledge Context Expansion
+- Appended Velvet & Dough specifications to the `SYSTEM_PROMPT` in [route.ts](file:///c:/Developer/Hail%20Myself/Project/Web/portfolios/ridho-profile/src/app/api/chat/route.ts).
+- Integrated keyword checking inside `mockResponse()` for `"velvet"`, `"dough"`, `"baking"`, `"cake"`, `"qris"`, `"kitchen"`, or `"order"` to describe Velvet & Dough's technical features (mock fallback database, Velvet AI translator, fail-safe limits, zero-auth order import) with full markdown styling and emojis.
+
+### 4. Bilingual Translation Integration
+- Updated [en.ts](file:///c:/Developer/Hail%20Myself/Project/Web/portfolios/ridho-profile/src/locales/en.ts) and [id.ts](file:///c:/Developer/Hail%20Myself/Project/Web/portfolios/ridho-profile/src/locales/id.ts) with full English and Indonesian translation strings for project `p7`.
+
+### 5. Interactive Screenshot Carousel Gallery & Lightbox modal (Active for Velvet & Dough Only)
+- Copied five high-resolution, user-uploaded screenshots of the Velvet & Dough application (Home banner, Menu catalog, Sweet reviews, Story section, Contact details) to `/public/screenshots/velvet-dough/`.
+- Extended the `Project` interface with an optional `screenshots?: string[]` array property.
+- Built a scrollable, glassmorphic thumbnail carousel at the top of the body sections inside the details spec sheets (active on the Velvet & Dough details drawer).
+- Built a full-screen, high-performance Lightbox Modal component activated when clicking any thumbnail. It overlays a blurred background with the active image, a counter indicator (`index / total`), and full navigation arrows.
+- Integrated keyboard listeners that allow closing the lightbox with the `Escape` key and navigating between images using `ArrowLeft` and `ArrowRight` buttons.
+
+### 6. GitHub Synchronization & Live Vercel Update
+- Staged, committed, and pushed all local modifications and newly uploaded assets directly to the GitHub remote repository `origin/main` ([Portfolio.git](https://github.com/RidhoAzfa/Portfolio.git)).
+- Executed direct CLI deployments (`npx vercel --prod --yes`) linking to your Vercel organization project `ridhoazfa` to instantly propagate changes to the production domain.
+
+---
+
 ## Final Verification Summary
 
+- **Vercel Build Output**: Production deployment aliased to [https://ridhoazfa.vercel.app](https://ridhoazfa.vercel.app) is active and running successfully.
 - **Desktop Layout**: Verified chatbot panel alignment and responsiveness on 1280x720 and wider desktop screens. (Prism-like glassmorphic look, fully visible).
 - **Mobile Layout**: Emulated iPhone 13 viewport (390x844) runs a full-width bottom sheet layout with click-outside dims.
 - **Diagnostics**: Build compiles 100% cleanly (`pnpm build`) and ES-linter contains 0 errors/warnings (`pnpm lint`).
