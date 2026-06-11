@@ -39,7 +39,7 @@ function NeuralTerminal() {
   }, []);
 
   return (
-    <div className="p-5 font-mono text-[11px] leading-relaxed overflow-hidden h-[260px] bg-background/60 scan-line-container">
+    <div className="p-5 font-mono text-[11px] leading-relaxed overflow-hidden h-[280px] sm:h-[260px] bg-background/60 scan-line-container">
       {NEURAL_LINES.slice(0, visibleLines).map((line, idx) => (
         <div key={idx} className={`${line.color} whitespace-pre`}>
           {line.text}
@@ -96,7 +96,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen relative pt-24 pb-16 md:pt-32 md:pb-20 px-4 md:px-6 flex flex-col items-center justify-center overflow-hidden grid-bg"
+      className="min-h-screen relative pt-20 pb-12 md:pt-32 md:pb-20 px-4 md:px-6 flex flex-col items-center justify-center overflow-hidden grid-bg"
     >
       {/* Layered background blobs */}
       <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-accent-primary/8 blur-[100px] pointer-events-none animate-pulse-slow" />
@@ -106,10 +106,10 @@ export default function Hero() {
       {/* Diagonal gradient wash */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/[0.03] via-transparent to-accent-secondary/[0.03] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
+      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center relative z-10">
 
         {/* Left Column */}
-        <div className="lg:col-span-6 flex flex-col items-start text-left gap-6">
+        <div className="lg:col-span-6 flex flex-col items-start text-left gap-3 md:gap-6">
 
           {/* Greeting badge */}
           <motion.div
@@ -133,7 +133,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight font-serif font-normal text-fg-app"
+              className="text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight font-serif font-normal text-fg-app"
             >
               Muhammad Ridho
               <br />
@@ -170,7 +170,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-muted-text text-base md:text-lg max-w-xl leading-relaxed font-sans"
+            className="text-muted-text text-sm md:text-lg max-w-xl leading-relaxed font-sans"
           >
             {t("hero.subtitle")}
           </motion.p>
@@ -180,22 +180,22 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap items-center gap-4 mt-1 w-full sm:w-auto"
+            className="flex flex-row items-center gap-3 mt-1 w-full sm:w-auto"
           >
             <a
               href="#projects"
-              className="relative px-6 py-3 rounded-full bg-accent-primary text-white text-sm font-semibold flex items-center gap-2 transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 shadow-lg glow-primary w-full sm:w-auto justify-center group cursor-pointer"
+              className="relative px-4 py-2.5 sm:px-6 sm:py-3 rounded-full bg-accent-primary text-white text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2 transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 shadow-lg glow-primary flex-1 sm:flex-initial justify-center group cursor-pointer"
             >
-              <FolderGit2 className="w-4 h-4" />
+              <FolderGit2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>{t("hero.cta_projects")}</span>
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
 
             <a
               href="#contact"
-              className="px-6 py-3 rounded-full border border-card-border bg-card-bg backdrop-blur-md text-fg-app text-sm font-semibold flex items-center gap-2 hover:bg-surface-raised hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto justify-center cursor-pointer"
+              className="px-4 py-2.5 sm:px-6 sm:py-3 rounded-full border border-card-border bg-card-bg backdrop-blur-md text-fg-app text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2 hover:bg-surface-raised hover:-translate-y-0.5 transition-all duration-300 flex-1 sm:flex-initial justify-center cursor-pointer"
             >
-              <Mail className="w-4 h-4 text-muted-text" />
+              <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-text" />
               <span>{t("hero.cta_contact")}</span>
             </a>
           </motion.div>
@@ -244,7 +244,7 @@ export default function Hero() {
                 <button
                   key={key}
                   onClick={() => setActiveTab(key)}
-                  className={`py-2 px-3 border-b-2 text-[10px] font-mono flex items-center gap-1.5 transition-all duration-200 cursor-pointer ${
+                  className={`py-1.5 px-2 md:py-2 md:px-3 border-b-2 text-[9px] md:text-[10px] font-mono flex items-center gap-1 md:gap-1.5 transition-all duration-200 cursor-pointer ${
                     activeTab === key
                       ? "border-accent-primary text-fg-app font-bold"
                       : "border-transparent text-muted-text hover:text-fg-app"
@@ -266,7 +266,7 @@ export default function Hero() {
                 transition={{ duration: 0.2 }}
               >
                 {activeTab === "robot" ? (
-                  <div className="relative h-[260px] bg-background/30 overflow-hidden flex items-center justify-center animate-fade-in">
+                  <div className="relative h-[280px] sm:h-[260px] bg-background/30 overflow-hidden flex items-center justify-center animate-fade-in">
                     {!isMounted ? (
                       <div className="flex items-center gap-2 text-[10px] font-mono text-muted-text">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent-primary animate-ping" />
@@ -283,7 +283,7 @@ export default function Hero() {
                 ) : activeTab === "neural" ? (
                   <NeuralTerminal />
                 ) : activeTab === "terraform" ? (
-                  <div className="p-5 font-mono text-[11px] leading-relaxed overflow-x-auto h-[260px] bg-background/60">
+                  <div className="p-5 font-mono text-[11px] leading-relaxed overflow-x-auto h-[280px] sm:h-[260px] bg-background/60">
                     <pre className="text-muted-text">
                       <code>
                         <span className="text-rose-400">resource</span> <span className="text-accent-primary">&quot;aws_vpc&quot;</span> <span className="text-accent-primary">&quot;bakrie_network&quot;</span> &#123;{"\n"}
@@ -309,7 +309,7 @@ export default function Hero() {
                     </pre>
                   </div>
                 ) : (
-                  <div className="p-5 font-mono text-[11px] leading-relaxed overflow-x-auto h-[260px] bg-background/60">
+                  <div className="p-5 font-mono text-[11px] leading-relaxed overflow-x-auto h-[280px] sm:h-[260px] bg-background/60">
                     <pre className="text-muted-text">
                       <code>
                         <span className="text-rose-400">def</span> <span className="text-accent-primary">configure_cisco_switch</span>(ip, vlan_id):{"\n"}
