@@ -107,3 +107,4 @@ playwright-report/
 *.tmp
 *.temp
 .turbo/
+.vercel

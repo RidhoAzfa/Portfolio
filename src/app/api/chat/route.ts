@@ -41,6 +41,7 @@ Software: React, Next.js 15, TypeScript, Python, HTML5/CSS3/JS, D3.js, Three.js/
 4. Celeste AI — Hybrid AI Workstation: React 19 + Express + FastAPI. Runs 12GB+ FLUX/SD models offline on consumer GPU with sequential CPU offloading, VAE slicing, subprocess queue, CelesteDB.
 5. Acontext Audit — Compliance Engine: Multi-tenant scanner with Acontext Sync Engine, tsconfig parser, LLM OWASP mapper, SSE live logs, radial SVG gauges.
 6. Minerva AI — Conversational Agent (In Development): Planned RAG vector memory, tool-calling planner, multi-agent canvas.
+7. Velvet & Dough — E-Commerce & SaaS Portal: Next.js 15 + React 19 + Prisma (hybrid mock db) + Postgres + Redis (fail-safe rate limit) + Supabase (signed receipt URLs) + n8n webhooks. Features Velvet AI translator, zero-auth customer tracking, and a kitchen FIFO pipeline with stock controls.
 
 --- CONTACT ---
 Email: ridhoazfa1@gmail.com
@@ -96,11 +97,15 @@ function mockResponse(message: string): string {
     return "🧠 **Minerva AI** is a next-generation conversational AI agent platform (Currently in progress / under development):\n\n- **Contextual Memory**: Powered by semantic vector database embeddings for long-term personalized recall.\n- **Cognitive Planner**: Leverages reasoning models to create dynamic task execution checklists on the fly.\n- **Tool Calling Router**: Dynamically integrates with external APIs to automate complex user workflows.";
   }
 
-  if (query.includes("hello") || query.includes("hi ") || query.includes("hey") || query.includes("greeting")) {
-    return "Hello! I am Ridho's AI Portfolio Assistant. I can tell you all about his vocational network engineering roots, college studies, AWS prep, or projects (Maryam Familia, Discover York WebGIS, Characters 3D Viewer, Celeste AI, Acontext Audit, and Minerva AI). Ask me anything!";
+  if (query.includes("velvet") || query.includes("dough") || query.includes("baking") || query.includes("cake") || query.includes("qris") || query.includes("kitchen") || query.includes("order")) {
+    return "🍰 **Velvet & Dough** is a premium direct-to-consumer (D2C) e-commerce & baking operations SaaS:\n\n- **Hybrid In-Memory Mock DB**: Falls back to an in-memory client (`MockPrismaClient`) if Postgres is missing during dev, supporting full transactions, relations, and aggregations.\n- **Velvet AI Translator**: Automatically translates Indonesian testimonials to English contextually for international users.\n- **Fail-Safe Middleware**: Bypasses rate limits and logs warnings if Redis goes offline to prevent checkout abandonment.\n- **Zero-Auth Customer Tracking**: Customers can track order fulfillment locally via browser storage or import order history using Order Number and WhatsApp number.\n- **Kitchen FIFO Production Queue**: Dashboard for baking workflow status transitions (PREPARING → READY → DELIVERED) with omnichannel logging and dynamic stock controls.";
   }
 
-  return "I'm glad you asked! As Ridho Azfa's AI assistant, I can tell you that he combines a solid vocational background in network cabling/switching with cloud engineering and web application skills. Feel free to ask about his **AWS badges**, **vocational networking skills**, **University of Bakrie studies**, or **case study projects like Maryam Familia, Discover York, Characters 3D, Celeste AI, Acontext Audit, or Minerva AI**!";
+  if (query.includes("hello") || query.includes("hi ") || query.includes("hey") || query.includes("greeting")) {
+    return "Hello! I am Ridho's AI Portfolio Assistant. I can tell you all about his vocational network engineering roots, college studies, AWS prep, or projects (Maryam Familia, Discover York WebGIS, Characters 3D Viewer, Celeste AI, Acontext Audit, Minerva AI, and Velvet & Dough). Ask me anything!";
+  }
+
+  return "I'm glad you asked! As Ridho Azfa's AI assistant, I can tell you that he combines a solid vocational background in network cabling/switching with cloud engineering and web application skills. Feel free to ask about his **AWS badges**, **vocational networking skills**, **University of Bakrie studies**, or **case study projects like Maryam Familia, Discover York, Characters 3D, Celeste AI, Acontext Audit, Minerva AI, or Velvet & Dough**!";
 }
 
 export async function POST(req: Request) {

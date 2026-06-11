@@ -12,7 +12,10 @@ import {
   Terminal,
   ArrowRight,
   Code,
-  Workflow
+  Workflow,
+  ChevronLeft,
+  ChevronRight,
+  Image as ImageIcon
 } from "lucide-react";
 
 interface Project {
@@ -25,23 +28,36 @@ interface Project {
   codeSnippet: string;
   codeLang: string;
   renderSVG: () => React.ReactNode;
+  screenshots?: string[];
 }
 
 export default function Projects() {
   const { t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<"all" | "cloud" | "web" | "ai">("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [activeLightboxImageIdx, setActiveLightboxImageIdx] = useState<number | null>(null);
 
-  // Close drawer on Escape key press
+  // Close drawer and navigate lightbox on key presses
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setSelectedProject(null);
+        if (activeLightboxImageIdx !== null) {
+          setActiveLightboxImageIdx(null);
+        } else {
+          setSelectedProject(null);
+        }
+      } else if (activeLightboxImageIdx !== null && selectedProject?.screenshots) {
+        const len = selectedProject.screenshots.length;
+        if (e.key === "ArrowRight") {
+          setActiveLightboxImageIdx((prev) => (prev! === len - 1 ? 0 : prev! + 1));
+        } else if (e.key === "ArrowLeft") {
+          setActiveLightboxImageIdx((prev) => (prev! === 0 ? len - 1 : prev! - 1));
+        }
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [activeLightboxImageIdx, selectedProject]);
 
   const projects: Project[] = [
     {
@@ -185,7 +201,14 @@ function updateBuffer(latlng, radiusMeters) {
             <text x="6" y="26" className="fill-accent-secondary font-mono text-[5px] font-bold uppercase animate-pulse">Syncing IndexedDB...</text>
           </g>
         </svg>
-      )
+      ),
+      screenshots: [
+        "/screenshots/discover-york/full-map.png",
+        "/screenshots/discover-york/york-ai.png",
+        "/screenshots/discover-york/layers-tools.png",
+        "/screenshots/discover-york/directions.png",
+        "/screenshots/discover-york/explore-weather.png"
+      ]
     },
     {
       id: "p3",
@@ -516,6 +539,146 @@ export async function executeAgentStep(goal: string, context: AgentContext) {
           </g>
         </svg>
       )
+    },
+    {
+      id: "p7",
+      category: "web",
+      key: "p7",
+      tags: ["D2C E-Commerce", "SaaS Operations", "Real-Time Tracking", "Velvet AI Translator"],
+      tech: ["Next.js 15 (App Router)", "React 19", "Prisma ORM", "PostgreSQL", "Redis Fail-Safe Cache", "Supabase Storage", "n8n Webhook Workflow", "TailwindCSS v4", "Framer Motion", "Zustand Store", "NextAuth.js"],
+      github: "https://github.com/RidhoAzfa/velvet-dough-saas",
+      codeLang: "typescript",
+      codeSnippet: `// db.ts - Hybrid In-Memory Fallback Database Client
+import { PrismaClient } from "@prisma/client";
+import { MockPrismaClient } from "./mock-db";
+
+let prisma: PrismaClient | MockPrismaClient;
+
+if (process.env.DATABASE_URL) {
+  prisma = new PrismaClient();
+} else {
+  console.warn("⚠️ Postgres URL missing. Falling back to Mock Database.");
+  prisma = new MockPrismaClient({
+    seedData: true,
+    enableTransactions: true,
+    logger: ["query", "info", "warn", "error"]
+  });
+}
+
+export default prisma;`,
+      renderSVG: () => (
+        <svg viewBox="0 0 400 200" className="w-full h-full text-accent-primary" fill="none" stroke="currentColor" strokeWidth="1.5">
+          {/* Background grid representation */}
+          <path d="M 10,10 L 10,190 M 50,10 L 50,190 M 90,10 L 90,190 M 130,10 L 130,190 M 170,10 L 170,190 M 210,10 L 210,190 M 250,10 L 250,190 M 290,10 L 290,190 M 330,10 L 330,190 M 370,10 L 370,190" className="stroke-accent-primary/[0.03] stroke-[0.5]" />
+          <path d="M 10,10 L 390,10 M 10,50 L 390,50 M 10,90 L 390,90 M 10,130 L 390,130 M 10,170 L 390,170" className="stroke-accent-primary/[0.03] stroke-[0.5]" />
+
+          {/* Left Block: D2C E-Commerce Catalog & Checkout */}
+          <g transform="translate(15, 50)">
+            <rect x="0" y="0" width="100" height="90" rx="6" className="stroke-accent-primary fill-accent-primary/5 stroke-[1.2]" />
+            <text x="50" y="16" textAnchor="middle" className="fill-accent-primary font-display text-[7.5px] font-extrabold">D2C Checkout UI</text>
+            <text x="50" y="28" textAnchor="middle" className="fill-muted-text font-mono text-[5px]">Medan, Indonesia</text>
+            
+            {/* Catalog Grid representation */}
+            <g transform="translate(10, 36)">
+              <rect x="0" y="0" width="22" height="16" rx="2" className="stroke-accent-primary/40 fill-none" />
+              <circle cx="11" cy="8" r="4" className="fill-accent-tertiary/20 stroke-accent-tertiary stroke-[0.5]" />
+              
+              <rect x="28" y="0" width="22" height="16" rx="2" className="stroke-accent-primary/40 fill-none" />
+              <path d="M34,11 L44,11 L39,5 Z" className="fill-accent-primary/20 stroke-accent-primary stroke-[0.5]" />
+              
+              <rect x="56" y="0" width="22" height="16" rx="2" className="stroke-accent-primary/40 fill-none" />
+              <rect x="62" y="4" width="10" height="8" rx="1" className="fill-accent-secondary/20 stroke-accent-secondary stroke-[0.5]" />
+            </g>
+
+            {/* QRIS Scanner HUD */}
+            <g transform="translate(10, 60)">
+              <rect x="0" y="0" width="80" height="22" rx="4" className="stroke-accent-secondary/40 fill-background/90" />
+              <rect x="5" y="4" width="14" height="14" className="stroke-accent-secondary fill-none stroke-[1]" />
+              <rect x="8" y="7" width="8" height="8" className="fill-accent-secondary" />
+              <text x="24" y="10" className="fill-accent-secondary font-mono text-[4.5px] font-bold">QRIS PAYMENT</text>
+              <text x="24" y="17" className="fill-muted-text font-mono text-[4px] animate-pulse">Upload Receipt...</text>
+            </g>
+          </g>
+
+          {/* Center Block: Next.js 15 Backend API Engine */}
+          <g transform="translate(140, 35)">
+            <rect x="0" y="0" width="120" height="120" rx="8" className="stroke-accent-secondary fill-accent-secondary/5 stroke-[1.2]" />
+            <text x="60" y="16" textAnchor="middle" className="fill-accent-secondary font-display text-[7.5px] font-extrabold">Next.js Serverless API</text>
+            <text x="60" y="28" textAnchor="middle" className="fill-muted-text font-mono text-[5px]">Ecosystem Middleware</text>
+
+            {/* Redis Rate Limiting Fail-Safe */}
+            <g transform="translate(10, 38)">
+              <rect x="0" y="0" width="100" height="22" rx="4" className="stroke-rose-500 fill-rose-500/5 stroke-[1]" />
+              <text x="50" y="10" textAnchor="middle" className="fill-rose-400 font-mono text-[5px] font-bold">Redis Rate Limiter</text>
+              <text x="50" y="17" textAnchor="middle" className="fill-muted-text font-mono text-[4px]">(Fail-Safe Bypass Active)</text>
+              <path d="M 0,11 L -10,11 L -10,32 L 10,32 L 10,22" className="stroke-emerald-400/50 stroke-[0.8] fill-none" strokeDasharray="2 2" />
+            </g>
+
+            {/* Database Fallback Switcher */}
+            <g transform="translate(10, 68)">
+              <rect x="0" y="0" width="100" height="20" rx="4" className="stroke-accent-primary fill-background/95 stroke-[1] animate-svg-pulse-border" />
+              <text x="50" y="12" textAnchor="middle" className="fill-accent-primary font-mono text-[5px] font-bold">MockPrismaClient (Local)</text>
+            </g>
+
+            {/* Supabase Storage Signed URLs */}
+            <g transform="translate(10, 94)">
+              <rect x="0" y="0" width="100" height="20" rx="4" className="stroke-emerald-500 fill-emerald-500/5 stroke-[1]" />
+              <text x="50" y="12" textAnchor="middle" className="fill-emerald-400 font-mono text-[5px] font-bold">Supabase Signed Token URLs</text>
+            </g>
+          </g>
+
+          {/* Right Block: Kitchen Operations Dashboard */}
+          <g transform="translate(285, 50)">
+            <rect x="0" y="0" width="100" height="90" rx="6" className="stroke-accent-tertiary fill-accent-tertiary/5 stroke-[1.2]" />
+            <text x="50" y="16" textAnchor="middle" className="fill-accent-tertiary font-display text-[7.5px] font-extrabold">Kitchen FIFO Queue</text>
+            <text x="50" y="28" textAnchor="middle" className="fill-muted-text font-mono text-[5px]">Admin Dashboard</text>
+
+            {/* FIFO Queue list representation */}
+            <g transform="translate(8, 36)">
+              <rect x="0" y="0" width="84" height="12" rx="2" className="stroke-accent-tertiary/30 fill-none" />
+              <circle cx="6" cy="6" r="2" className="fill-amber-400" />
+              <text x="14" y="8" className="fill-muted-text font-mono text-[4px]">VD-2026-102 | PENDING</text>
+              <rect x="68" y="2" width="14" height="8" rx="1" className="fill-amber-400/20 stroke-amber-400 stroke-[0.5]" />
+
+              <rect x="0" y="16" width="84" height="12" rx="2" className="stroke-accent-primary/40 fill-background/80" />
+              <circle cx="6" cy="6" r="2" className="fill-accent-primary animate-ping" />
+              <circle cx="6" cy="6" r="1.5" className="fill-accent-primary" />
+              <text x="14" y="8" className="fill-accent-primary font-mono text-[4.5px] font-bold">VD-2026-101 | BAKING</text>
+              <rect x="68" y="2" width="14" height="8" rx="1" className="fill-accent-primary/20 stroke-accent-primary stroke-[0.5]" />
+            </g>
+
+            {/* Webhook notification trigger */}
+            <g transform="translate(8, 70)">
+              <rect x="0" y="0" width="84" height="14" rx="3" className="stroke-accent-secondary/50 fill-background/90" />
+              <text x="42" y="9" textAnchor="middle" className="fill-accent-secondary font-mono text-[4.5px] font-bold uppercase animate-pulse">n8n WhatsApp Webhook</text>
+            </g>
+          </g>
+
+          {/* Interconnecting flow arrows */}
+          {/* Checkout to API */}
+          <path d="M 115,95 L 140,95" className="stroke-accent-primary/60 stroke-[1.5] animate-svg-flow-right" />
+          <polygon points="140,95 135,92 135,98" className="fill-accent-primary" />
+
+          {/* API to Kitchen */}
+          <path d="M 260,95 L 285,95" className="stroke-accent-secondary/60 stroke-[1.5] animate-svg-flow-right" />
+          <polygon points="285,95 280,92 280,98" className="fill-accent-secondary" />
+
+          {/* Webhook trigger path */}
+          <path d="M 335,140 L 335,170 L 65,170 L 65,140" className="stroke-accent-tertiary/40 stroke-[1] animate-svg-flow-left" strokeDasharray="3 3" />
+          <polygon points="65,140 62,145 68,145" className="fill-accent-tertiary/40" />
+          <g transform="translate(200, 170)">
+            <rect x="-40" y="-7" width="80" height="14" rx="4" className="stroke-accent-tertiary fill-background/95" />
+            <text x="0" y="3" textAnchor="middle" className="fill-accent-tertiary font-mono text-[5px] font-bold">WhatsApp Alert Dispatcher</text>
+          </g>
+        </svg>
+      ),
+      screenshots: [
+        "/screenshots/velvet-dough/velvet-1.png",
+        "/screenshots/velvet-dough/velvet-2.png",
+        "/screenshots/velvet-dough/velvet-3.png",
+        "/screenshots/velvet-dough/velvet-4.png",
+        "/screenshots/velvet-dough/velvet-5.png"
+      ]
     }
   ];
 
@@ -721,6 +884,34 @@ export async function executeAgentStep(goal: string, context: AgentContext) {
                   </p>
                 </div>
 
+                {/* Screenshot Gallery */}
+                {selectedProject.screenshots && selectedProject.screenshots.length > 0 && (
+                  <div className="flex flex-col gap-2.5">
+                    <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-accent-secondary flex items-center gap-1.5">
+                      <ImageIcon className="w-3.5 h-3.5" />
+                      {t("projects.gallery") || "Project Screenshots"}
+                    </h4>
+                    <div className="flex gap-3 overflow-x-auto pb-2.5 snap-x scrollbar-thin scrollbar-thumb-card-border no-scrollbar">
+                      {selectedProject.screenshots.map((src, index) => (
+                        <div
+                          key={src}
+                          onClick={() => setActiveLightboxImageIdx(index)}
+                          className="relative w-40 h-24 rounded-xl overflow-hidden border border-card-border cursor-pointer hover:border-accent-primary hover:scale-[1.03] active:scale-95 transition-all duration-200 flex-shrink-0 snap-start bg-surface-raised group/thumb"
+                        >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={src}
+                            alt={`${selectedProject.key} screenshot ${index + 1}`}
+                            className="w-full h-full object-cover opacity-85 group-hover/thumb:opacity-100 transition-opacity duration-200"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-accent-primary/5 opacity-0 group-hover/thumb:opacity-100 transition-opacity pointer-events-none" />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Body sections */}
                 <div className="flex flex-col gap-6 flex-1">
 
@@ -804,6 +995,87 @@ export async function executeAgentStep(goal: string, context: AgentContext) {
               </div>
             </motion.div>
           </div>
+        )}
+      </AnimatePresence>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {activeLightboxImageIdx !== null && selectedProject?.screenshots && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[70] flex flex-col items-center justify-center bg-black/95 backdrop-blur-md select-none p-4"
+          >
+            {/* Click-outside backdrop */}
+            <div
+              className="absolute inset-0 cursor-zoom-out"
+              onClick={() => setActiveLightboxImageIdx(null)}
+            />
+
+            {/* Lightbox Container */}
+            <div className="relative max-w-4xl max-h-[80vh] flex flex-col items-center justify-center z-10 w-full">
+              {/* Close Button */}
+              <button
+                onClick={() => setActiveLightboxImageIdx(null)}
+                className="absolute -top-12 right-0 text-white hover:text-accent-primary transition-all p-2 text-xs font-mono flex items-center gap-1.5 cursor-pointer bg-white/10 hover:bg-white/20 rounded-full px-4 py-2 shadow-lg"
+              >
+                <X className="w-4 h-4" />
+                <span>CLOSE</span>
+              </button>
+
+              {/* Large Image display */}
+              <div className="relative w-full h-full flex items-center justify-center">
+                <motion.img
+                  key={activeLightboxImageIdx}
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ duration: 0.2 }}
+                  src={selectedProject.screenshots[activeLightboxImageIdx]}
+                  alt={`Screenshot ${activeLightboxImageIdx + 1}`}
+                  className="max-w-full max-h-[75vh] object-contain rounded-2xl border border-white/10 shadow-2xl"
+                />
+              </div>
+
+              {/* Image Counter Indicator */}
+              <span className="mt-4 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono text-gray-400">
+                {activeLightboxImageIdx + 1} / {selectedProject.screenshots.length}
+              </span>
+            </div>
+
+            {/* Lightbox Left Navigation */}
+            {selectedProject.screenshots.length > 1 && (
+              <>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveLightboxImageIdx((prev) =>
+                      prev! === 0 ? selectedProject.screenshots!.length - 1 : prev! - 1
+                    );
+                  }}
+                  className="absolute left-4 sm:left-8 w-12 h-12 rounded-full border border-white/15 bg-black/40 hover:bg-black/80 hover:border-accent-primary text-white flex items-center justify-center transition-all cursor-pointer z-20 group"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" />
+                </button>
+
+                {/* Lightbox Right Navigation */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveLightboxImageIdx((prev) =>
+                      prev! === selectedProject.screenshots!.length - 1 ? 0 : prev! + 1
+                    );
+                  }}
+                  className="absolute right-4 sm:right-8 w-12 h-12 rounded-full border border-white/15 bg-black/40 hover:bg-black/80 hover:border-accent-primary text-white flex items-center justify-center transition-all cursor-pointer z-20 group"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
+                </button>
+              </>
+            )}
+          </motion.div>
         )}
       </AnimatePresence>
     </section>
