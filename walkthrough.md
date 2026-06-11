@@ -306,7 +306,7 @@ We have successfully integrated the **Velvet & Dough** premium D2C e-commerce an
 - Updated [en.ts](file:///c:/Developer/Hail%20Myself/Project/Web/portfolios/ridho-profile/src/locales/en.ts) and [id.ts](file:///c:/Developer/Hail%20Myself/Project/Web/portfolios/ridho-profile/src/locales/id.ts) with full English and Indonesian translation strings for project `p7`.
 
 ### 5. Interactive Screenshot Carousel Gallery & Lightbox modal (Active for Velvet & Dough Only)
-- Copied five high-resolution, user-uploaded screenshots of the Velvet & Dough application in their original numerical sequence (Menu catalog, Home banner, Sweet reviews, Story section, Contact details) to `/public/screenshots/velvet-dough/`.
+- Copied five high-resolution, user-uploaded screenshots of the Velvet & Dough application (Home banner, Menu catalog, Sweet reviews, Story section, Contact details) to `/public/screenshots/velvet-dough/`.
 - Extended the `Project` interface with an optional `screenshots?: string[]` array property.
 - Built a scrollable, glassmorphic thumbnail carousel at the top of the body sections inside the details spec sheets (active on the Velvet & Dough details drawer).
 - Built a full-screen, high-performance Lightbox Modal component activated when clicking any thumbnail. It overlays a blurred background with the active image, a counter indicator (`index / total`), and full navigation arrows.

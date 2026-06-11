@@ -132,13 +132,6 @@ export function calculateKinship(memberA: string, memberB: string, graph: Family
       tags: ["WebGIS Map", "Leaflet.js", "Spatial Buffer", "QGIS Classification"],
       tech: ["HTML5", "Vanilla CSS3", "JavaScript ES6+", "Leaflet.js Mapping Engine", "Leaflet Routing Machine", "Google Gemini 3.1 Flash Lite API", "IndexedDB", "Service Workers", "QGIS Spatial Desktop"],
       github: "https://github.com/RidhoAzfa/discover-york-webgis",
-      screenshots: [
-        "/screenshots/discover-york/york-1.png",
-        "/screenshots/discover-york/york-2.png",
-        "/screenshots/discover-york/york-3.png",
-        "/screenshots/discover-york/york-4.png",
-        "/screenshots/discover-york/york-5.jpg"
-      ],
       codeLang: "javascript",
       codeSnippet: `// Draggable Spatial Buffer & Proximity Calculation
 function updateBuffer(latlng, radiusMeters) {
@@ -285,13 +278,6 @@ export function Model({ url, wireframe }) {
       tags: ["PC Automation Agent", "PowerShell Control", "DeepSeek API / R1", "Real-Time SSE Cockpit"],
       tech: ["Next.js", "React", "Node.js (ESM tsx)", "DeepSeek API (R1)", "SSE Streaming", "Windows PowerShell", "C# API Integration (CoreAudio)", "DuckDuckGo Scraper"],
       github: "https://github.com/RidhoAzfa/celeste-ai-agent",
-      screenshots: [
-        "/screenshots/celeste-ai/celeste-1.png",
-        "/screenshots/celeste-ai/celeste-2.png",
-        "/screenshots/celeste-ai/celeste-3.png",
-        "/screenshots/celeste-ai/celeste-4.png",
-        "/screenshots/celeste-ai/celeste-5.png"
-      ],
       codeLang: "typescript",
       codeSnippet: `// src/tools/system.ts - On-the-fly C# Compilation to interface with CoreAudio API
 import { execSync } from "child_process";
@@ -699,14 +685,7 @@ export default prisma;`,
             <text x="0" y="3" textAnchor="middle" className="fill-accent-tertiary font-mono text-[5px] font-bold">WhatsApp Alert Dispatcher</text>
           </g>
         </svg>
-      ),
-      screenshots: [
-        "/screenshots/velvet-dough/velvet-1.png",
-        "/screenshots/velvet-dough/velvet-2.png",
-        "/screenshots/velvet-dough/velvet-3.png",
-        "/screenshots/velvet-dough/velvet-4.png",
-        "/screenshots/velvet-dough/velvet-5.png"
-      ]
+      )
     }
   ];
 
