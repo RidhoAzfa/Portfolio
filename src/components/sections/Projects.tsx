@@ -131,7 +131,7 @@ export function calculateKinship(memberA: string, memberB: string, graph: Family
       key: "p2",
       tags: ["WebGIS Map", "Leaflet.js", "Spatial Buffer", "QGIS Classification"],
       tech: ["HTML5", "Vanilla CSS3", "JavaScript ES6+", "Leaflet.js Mapping Engine", "Leaflet Routing Machine", "Google Gemini 3.1 Flash Lite API", "IndexedDB", "Service Workers", "QGIS Spatial Desktop"],
-      github: "https://github.com/RidhoAzfa/discover-york-webgis",
+      github: "https://york-city-web-gis.vercel.app/",
       codeLang: "javascript",
       codeSnippet: `// Draggable Spatial Buffer & Proximity Calculation
 function updateBuffer(latlng, radiusMeters) {
@@ -560,7 +560,7 @@ export async function executeAgentStep(goal: string, context: AgentContext) {
       key: "p7",
       tags: ["D2C E-Commerce", "SaaS Operations", "Real-Time Tracking", "Velvet AI Translator"],
       tech: ["Next.js 15 (App Router)", "React 19", "Prisma ORM", "PostgreSQL", "Redis Fail-Safe Cache", "Supabase Storage", "n8n Webhook Workflow", "TailwindCSS v4", "Framer Motion", "Zustand Store", "NextAuth.js"],
-      github: "https://github.com/RidhoAzfa/velvet-dough-saas",
+      github: "https://velvetndough.vercel.app/",
       codeLang: "typescript",
       codeSnippet: `// db.ts - Hybrid In-Memory Fallback Database Client
 import { PrismaClient } from "@prisma/client";
